@@ -1,0 +1,90 @@
+@media (min-width: 979px)
+{
+  body
+  {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+}
+
+.video-game img
+{
+  display: block;
+  width: 85px;
+  min-height: 125px;
+  margin: 10px;
+  -webkit-box-shadow: 0px 0px 10px rgba(1, 143, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px rgba(1, 143, 0, 0.75);
+  box-shadow: 0px 0px 10px rgba(1, 143, 0, 0.75);
+}
+
+.video-game .btn
+{
+  margin: 0 auto;
+  display: block;
+  width: 50px;
+}
+
+.video-game .game-info
+{
+  margin-left: 5px;
+  min-height: 185px;
+}
+
+#wait-cursor
+{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.7;
+  opacity: .70;
+  filter: alpha(opacity=70);
+}
+
+  #wait-cursor > .progress
+  {
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    width: 30%;
+    z-index: 1002;
+    overflow: auto;
+  }
+
+footer
+{
+  height: 30px;
+}
+
+  footer h5
+  {
+    margin-top: 3px;
+  }
+
+.pagination
+{
+  margin: 7px 0px 0px 0px;
+}
+
+
+  .pagination ul > .disabled > span, .pagination ul > .disabled > a, .pagination ul > .disabled > a:hover
+  {
+    background-color: #f0f0f0;
+  }
+
+.result-pager
+{
+  float: right;
+}
+
+@media (max-width: 767px)
+{
+  .result-pager
+  {
+    float: none;
+  }
+}

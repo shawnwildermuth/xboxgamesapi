@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:gap="http://phonegap.com/ns/1.0"
+        id="wilderminds.xboxgamesbrowser"
+        version="1.0.0">
+
+  <!-- versionCode is optional and Android only -->
+  <name>Xbox Games Browser</name>
+
+  <description>
+    An example website to tablet app example.
+  </description>
+
+  <author href="https://wilderminds.com"
+          email="support@wilderminds.com">
+    Wilder Minds LLC
+  </author>
+
+  <!-- Options -->
+  <preference name="orientation"
+              value="portrait" />
+  <preference name="fullscreen"
+              value="true" />
+
+  <!-- Features (e.g. Permissions) -->
+  <feature name="http://api.phonegap.com/1.0/network" />
+  <feature name="http://api.phonegap.com/1.0/notification" />
+  
+  <!-- Icons -->
+  <icon src="icon.png" /> <!-- must be named this -->
+  
+  <!-- iOS -->
+  <icon src="img/icons/ios/logo_57.png"
+        width="57"
+        height="57" />
+  <icon src="img/icons/ios/logo_72.png"
+        gap:platform="ios"
+        width="72"
+        height="72" />
+  <icon src="img/icons/ios/logo_114.png"
+        width="114"
+        height="114" />
+
+  <!-- Android -->
+  <icon src="img/icons/android/logo_36.png"
+        gap:platform="android"
+        gap:density="ldpi" />
+  <icon src="img/icons/android/logo_48.png"
+        gap:platform="android"
+        gap:density="mdpi" />
+  <icon src="img/icons/android/logo_72.png"
+        gap:platform="android"
+        gap:density="hdpi" />
+  <icon src="img/icons/android/logo_96.png"
+        gap:platform="android"
+        gap:density="xhdpi" />
+
+  <!-- WinPhone -->
+  <icon src="img/icons/wp8/logo.png"
+        gap:platform="winphone" />
+  <icon src="img/icons/wp8/tile.png"
+        gap:platform="winphone"
+        gap:role="background" />
+
+  <!-- Splash Screens -->
+  <gap:splash src="splash.png" /> <!-- must be named this -->
+  
+  <!-- iOS -->
+  <!--<gap:splash src="splash/ios/Default.png"
+              width="320"
+              height="480" />
+  <gap:splash src="splash/ios/Default_at_2x.png"
+              width="640"
+              height="960" />
+  <gap:splash src="splash/ios/Default_iphone5.png"
+              width="640"
+              height="1136" />
+  <gap:splash src="splash/ios/Default-Landscape.png"
+              width="1024"
+              height="768" />
+  <gap:splash src="splash/ios/Default-Portrait.png"
+              width="768"
+              height="1024" />-->
+  
+  <!-- Android -->
+  <!--<gap:splash src="splash/android/ldpi.png"
+              gap:platform="android"
+              gap:density="ldpi" />
+  <gap:splash src="splash/android/mdpi.png"
+              gap:platform="android"
+              gap:density="mdpi" />
+  <gap:splash src="splash/android/hdpi.png"
+              gap:platform="android"
+              gap:density="hdpi" />
+  <gap:splash src="splash/android/xhdpi.png"
+              gap:platform="android"
+              gap:density="xhdpi" />-->
+  
+  <!-- WinPhone (! .jpg) -->
+  <gap:splash src="icons/wp8/splashscreen.jpg"
+              gap:platform="winphone" />
+</widget>

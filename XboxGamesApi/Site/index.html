@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Xbox Games Browser</title>
+  <meta name="description" content="xbox games browser">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <!--[if lt IE 9]>
+    <script src="js/vendor/html5-3.6-respond-1.1.0.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#/">Xbox Games Browser</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="#/">Games</a></li>
+            <li><a href="#/about">About</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+  <div class="container main-page" id="main">
+    <div class="view hide" id="home-page">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="brand pull-left">Genre:</div>
+          <form class="navbar-form">
+            <select id="genre-select">
+              <option>Choose one...</option>
+              <!-- ko foreach: genres -->
+              <option data-bind="{text: $data}"></option>
+              <!-- /ko -->
+            </select>
+            <div class="pagination result-pager" data-bind="visible: totalPages() > 1">
+              <ul>
+                <li data-bind="css: { disabled: currentPage() == 1 }"><a href="first" id="firstButton">&lt;&lt;</a></li>
+                <li data-bind="css: { disabled: currentPage() == 1 }"><a href="prev" id="prevButton">&lt;</a></li>
+                <li class="disabled"><span data-bind="text: currentPage() + ' of ' + totalPages()"></span></li>
+                <li data-bind="css: { disabled: currentPage() >= totalPages() }"><a id="nextButton" href="next">&gt;</a></li>
+                <li data-bind="css: { disabled: currentPage() >= totalPages() }"><a href="last" id="lastButton">&gt;&gt;</a></li>
+              </ul>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!--<div class="well well-small">
+        <h3 class="hidden-phone hidden-tablet">You can get started by browsing for your favorite Xbox games now!</h3>
+        <h5 class="visible-phone visible-tablet">You can get started by browsing for your favorite Xbox games now!</h5>
+        <div>-->
+      <!--<a class="dropdown-toggle btn btn-primary" data-toggle="dropdown" href="#">Pick Genre...<b class="caret"></b></a>
+          <ul class="dropdown-menu genre-menu" role="menu" aria-labelledby="dropdownMenu" data-bind="foreach: genres">
+            <li><a tabindex="-1" class="genre-menu-item" data-bind="{text: $data, attr: { href: $data }}"></a></li>
+          </ul>-->
+      <!--        </div>
+      </div>-->
+      <div class="alert alert-error hide" id="errorAlert">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <div>An error occurred: <i><span id="errorText"></span></i></div>
+      </div>
+      <div id="wait-cursor" data-bind="visible: isBusy">
+        <div class="progress progress-striped active">
+          <div class="bar" style="width: 100%;"></div>
+        </div>
+      </div>
+      <!-- Results -->
+      <div data-bind="visible: genre().length > 0">
+        <ul class="thumbnails" data-bind="foreach: games">
+          <li class="span4">
+            <div class="thumbnail video-game">
+              <div class="pull-left">
+                <img data-bind="attr: {src: imageUrl}" alt="xbox game" class="img-polaroid" />
+                <a data-bind="attr: { href: 'http://www.amazon.com/gp/search?ie=UTF8&camp=1789&creative=9325&index=videogames&linkCode=ur2&tag=comguru&keywords=' + encodedName }" target="_blank" class="btn btn-success"><i class="icon icon-white icon-plus"></i>Buy</a>
+              </div>
+              <div class="game-info">
+                <h4 data-bind="text: name"></h4>
+                <div>Price: <strong><span data-bind="text: price"></span></strong></div>
+                <div>Release Date: <strong><span data-bind="text: releaseDate"></span></strong></div>
+                <p class="visible-phone" data-bind="text: description"></p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="view hide" id="about-page">
+      <div class="hero-unit">
+        <h2>About Xbox Game Browser</h2>
+        <a href="http://wilderminds.com" class="pull-right" target="_blank">
+          <img src="http://wilderminds.com/images/logo_150_bk_trans.png" alt="Wilder Minds LLC" /></a>
+        <p class="lead">An example application built by Shawn Wildermuth of <a href="http://wilderminds.com" target="_blank">Wilder Minds LLC</a></p>
+        <p>
+          This application was built using client-side JavaScript 
+          and a JSON-powered back-end. This site is an example of 
+          how to build and application that can be easily ported 
+          to the iPhone, iPad, Android, Windows Phone 8 and 
+          Windows 8 using PhoneGap and Adobe PhoneGap Build.
+        </p>
+        <p>This site uses a variety of client-side libraries including:</p>
+        <ul>
+          <li><a href="http://jquery.org" target="_blank">jQuery</a></li>
+          <li><a href="http://twitter.github.com/bootstrap/index.html" target="_blank">Twitter Bootstrap</a></li>
+          <li><a href="http://knockoutjs.com/index.html" target="_blank">KnockoutJS</a></li>
+          <li><a href="http://amplifyjs.com/" target="_blank">AmplifyJS</a></li>
+          <li><a href="http://sammyjs.org/" target="_blank">Sammy.js</a></li>
+        </ul>
+        <p>
+          In addition, the site was initially created using 
+          <a href="http://www.initializr.com/" target="_blank">Initializr</a> to produce a 
+          <a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a>
+          project with <a href="http://twitter.github.com/bootstrap/index.html" target="_blank">Twitter Bootstrap</a>
+          and other features.
+        </p>
+        <p>
+          The template was provided by 
+          <a href="http://bootswatch.com/" target="_blank">BootSwatch</a> and icons 
+          are from the <a href="http://twitter.github.com/bootstrap/index.html" target="_blank">Twitter 
+          Bootstrap</a> project but originally supplied by 
+          <a href="http://glyphicons.com/" target="_blank">GlyphIcons</a>.
+        </p>
+        <div data-bind="with: phoneGapInfo">
+          <h5>Device Information</h5>
+          <div>Device: <strong><span data-bind="text: name"></span></strong></div>
+          <div>Cordova Ver.: <strong><span data-bind="text: cordova"></span></strong></div>
+          <div>Platform: <strong><span data-bind="text: platform"></span></strong></div>
+          <div>Version: <strong><span data-bind="text: version"></span></strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /container -->
+  <footer class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="navbar-inner">
+      <div class="container">
+        <h5>Xbox Game Browser - <a href="http://wilderminds.com" target="_blank">Wilder Minds LLC</a> <span class="muted pull-right" data-bind="visible: isPhoneGap"><i>Phone Gap Enabled!</i></span></h5>
+      </div>
+    </div>
+  </footer>
+  <script src="js/vendor/jquery-1.8.2.min.js"></script>
+
+  <script src="js/vendor/jquery-ui-1.9.0.min.js"></script>
+  <script src="js/vendor/knockout-2.2.0.js"></script>
+  <script src="js/vendor/amplify.min.js"></script>
+  <script src="js/vendor/sammy-0.7.1.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <!--  <script src="phonegap.js"></script>-->
+  <script src="js/app.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/vm.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
